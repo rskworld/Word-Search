@@ -1,0 +1,118 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.game-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.game-cell:hover {
+    transform: scale(1.05);
+    background-color: #e0e0e0;
+}
+
+.game-cell.selected {
+    background-color: #4CAF50;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.game-cell.found {
+    background-color: #2196F3;
+    color: white;
+    animation: pulse 1s infinite;
+}
+
+.game-cell.hint {
+    background-color: #FFC107 !important;
+    animation: hint-pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes hint-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#wordList {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #6a11cb !important;
+}
+
+footer {
+    background-color: rgba(255,255,255,0.9);
+    padding: 20px 0;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+.form-check-input:checked {
+    background-color: #6a11cb;
+    border-color: #6a11cb;
+}
+
+.form-check-label {
+    color: #6a11cb;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .game-cell {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Responsive Typography */
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
